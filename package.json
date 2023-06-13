@@ -1,0 +1,16 @@
+{
+  "name": "screenshot-converter",
+  "version": "1.0.0",
+  "description": "Takes screenshots of provided links, hosts them with cloudinary, and updates the data with the hosted URL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyler Alexander",
+  "license": "MIT",
+  "dependencies": {
+    "cloudinary": "^1.37.1",
+    "dotenv": "^16.1.4",
+    "puppeteer": "10.4.0"
+  }
+}
