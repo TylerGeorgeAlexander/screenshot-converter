@@ -1,21 +1,21 @@
-**My Portfolio Screenshot Uploader**
+# My Portfolio Screenshot Uploader
 
 This is a comprehensive guide to the My Portfolio Screenshot Uploader app. The app enables users to upload JSON files containing their project information and have screenshots of their projects automatically generated, uploaded to Cloudinary, and stored in a MongoDB database.
 
-**Table of Contents**
-- Features
-- Technologies
-- Getting Started
-  - Prerequisites
-  - Installation
-- Usage
-  - Backend Usage
-  - Frontend Usage
-- Environment Variables
-- Contributing
-- License
+## Table of Contents
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Backend Usage](#backend-usage)
+  - [Frontend Usage](#frontend-usage)
+- [Environment Variables](#environment-variables)
+- [Contributing](#contributing)
+- [License](#license)
 
-**Features**
+## Features
 - Upload JSON files containing project information.
 - Automatically generate screenshots of project web pages using Puppeteer.
 - Upload generated screenshots to Cloudinary.
@@ -24,7 +24,7 @@ This is a comprehensive guide to the My Portfolio Screenshot Uploader app. The a
 - Option to specify custom database and collection names.
 - Option to insert single or multiple projects.
 
-**Technologies**
+## Technologies
 - Node.js
 - Express
 - React
@@ -32,17 +32,18 @@ This is a comprehensive guide to the My Portfolio Screenshot Uploader app. The a
 - Cloudinary
 - Puppeteer
 
-**Getting Started**
-**Prerequisites**
+## Getting Started
+### Prerequisites
 To run this project, you need to have the following prerequisites:
 - Node.js
 - npm
 - MongoDB (locally or a MongoDB Atlas account)
 - Cloudinary account
 
-**Installation**
+### Installation
 Follow these steps to install the project:
 1. Clone the repository:
+
    ```
    git clone https://github.com/your-repository/my-portfolio-screenshot-uploader.git
    ```
@@ -58,8 +59,8 @@ Follow these steps to install the project:
    ```
 4. Create a `.env` file in the server directory with your environment variables (see Environment Variables section).
 
-**Usage**
-**Backend Usage**
+## Usage
+### Backend Usage
 To start the backend server, run the following command:
 ```
 cd server
@@ -67,7 +68,7 @@ npm start
 ```
 The server will start on the specified port (default is 3000).
 
-**Frontend Usage**
+### Frontend Usage
 To start the frontend development server, run the following command:
 ```
 cd client
@@ -81,15 +82,15 @@ The app will process the JSON file, take screenshots, upload them to Cloudinary,
 
 You can view the uploaded projects in your database.
 
-**Environment Variables**
+## Environment Variables
 Create a `.env` file in the server directory and set the following variables:
 - MONGO_URI: Your MongoDB connection string.
 - CLOUDINARY_CLOUD_NAME: Your Cloudinary cloud name.
 - CLOUDINARY_API_KEY: Your Cloudinary API key.
 - CLOUDINARY_API_SECRET: Your Cloudinary API secret.
 
-**Contributing**
+## Contributing
 Contributions are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-**License**
+## License
 This project is licensed under the MIT License.
