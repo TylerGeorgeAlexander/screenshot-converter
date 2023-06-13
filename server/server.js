@@ -4,10 +4,12 @@ const upload = multer({ dest: 'uploads/' }); // specify the destination for uplo
 const app = express();
 const port = process.env.PORT || 3000;
 
+const dataToMongo = require('./utils/dataToMongo');
+
+
 app.use(express.json());
 
 
-// TODO: write dataToMongo to accept JSON uploads
 app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
     try {
         if (!req.file) {
@@ -20,8 +22,13 @@ app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
         // Parse JSON
         const jsonData = JSON.parse(fileContents);
 
+        // Get additional form fields
+        const dbName = req.body.dbName;
+        const collectionName = req.body.collectionName;
+        const isBulkInsert = req.body.isBulkInsert === 'true';
+
         // Insert data into MongoDB
-        await dataToMongo(jsonData);
+        await dataToMongo(jsonData, dbName, collectionName, isBulkInsert);
 
         // Delete the file after processing
         await fs.unlink(req.file.path);
@@ -34,6 +41,7 @@ app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 app.post('/api/convert', async (req, res) => {
     // trigger the conversion and upload process
