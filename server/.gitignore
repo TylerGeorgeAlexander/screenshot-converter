@@ -27,3 +27,6 @@ Thumbs.db
 *.swo
 *.swn
 *.bak
+
+# File Generation from dataToMongo
+uploads
