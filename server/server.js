@@ -1,9 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' }); // specify the destination for uploaded files
 const app = express();
 const port = process.env.PORT || 3000;
+const fs = require('fs');
 
+// Enable CORS for all routes
+app.use(cors());
+
+// TODO: test and implement the new dataToMongo
 const dataToMongo = require('./utils/dataToMongo');
 
 
@@ -17,7 +23,8 @@ app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
         }
 
         // Read the file
-        const fileContents = await fs.readFile(req.file.path, 'utf8');
+        // Use fs.promises.readFile to read the file as a promise
+        const fileContents = await fs.promises.readFile(req.file.path, 'utf8');
 
         // Parse JSON
         const jsonData = JSON.parse(fileContents);
@@ -31,7 +38,7 @@ app.post('/api/upload', upload.single('jsonFile'), async (req, res) => {
         await dataToMongo(jsonData, dbName, collectionName, isBulkInsert);
 
         // Delete the file after processing
-        await fs.unlink(req.file.path);
+        await fs.promises.unlink(req.file.path);
 
         // Send response
         res.json({ message: 'Data successfully uploaded to MongoDB' });
