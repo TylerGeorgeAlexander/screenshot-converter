@@ -1,6 +1,6 @@
-# My Portfolio Screenshot Uploader
+# Portfolio Screenshot Uploader
 
-This is a comprehensive guide to the My Portfolio Screenshot Uploader app. The app enables users to upload JSON files containing their project information and have screenshots of their projects automatically generated, uploaded to Cloudinary, and stored in a MongoDB database.
+This is a comprehensive guide to the Portfolio Screenshot Uploader app. The app enables users to upload JSON files containing their project information and have screenshots of their projects automatically generated, uploaded to Cloudinary, and stored in a MongoDB database.
 
 ## Table of Contents
 - [Features](#features)
